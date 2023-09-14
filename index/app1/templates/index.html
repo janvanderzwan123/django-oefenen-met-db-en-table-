@@ -1,16 +1,18 @@
+{% load static  %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>table</title>
 </head>
 <body>
-    <form action="{% url 'search_events' %}" method="get">
+    <form action="{% url 'search_events' %}" method="get" class="zoeken">
         <label for="search">Gebeurtenis Zoeken:</label>
         <input type="text" id="search" name="event">
         <input type="submit" value="Zoeken">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
     </form>
 
-    <table>
+    <table class="table">
         <tr>
             <th>Van</th>
             <th>Tot</th>
@@ -18,9 +20,9 @@
         </tr>
         {% for event in events_list %}
         <tr>
-            <td>{{ event.yearstart }}</td>
-            <td>{{ event.yearend }}</td>
-            <td>{{ event.event }}</td>
+            <center><td>{{ event.yearstart }}</td></center>
+            <center><td>{{ event.yearend }}</td></center>
+            <center class="event"><td>{{ event.event }}</td></center>
         </tr>
         {% endfor %}
     </table>

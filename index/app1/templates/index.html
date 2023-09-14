@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>table</title>
+</head>
+<body>
+    <form action="{% url 'search_events' %}" method="get">
+        <label for="search">Gebeurtenis Zoeken:</label>
+        <input type="text" id="search" name="event">
+        <input type="submit" value="Zoeken">
+    </form>
+
+    <table>
+        <tr>
+            <th>Van</th>
+            <th>Tot</th>
+            <th>Gebeurtenis</th>
+        </tr>
+        {% for event in events_list %}
+        <tr>
+            <td>{{ event.yearstart }}</td>
+            <td>{{ event.yearend }}</td>
+            <td>{{ event.event }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
